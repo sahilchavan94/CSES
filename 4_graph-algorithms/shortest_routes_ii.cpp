@@ -20,11 +20,27 @@ int main()
 {
     cin.tie(NULL);
     int n, m, q; cin >> n >> m >> q; 
-    unordered_map<int,vector<pii>> g; 
+    vector<vll> d(n, vll(n, LLONG_MAX));
+    for(int i = 0;i < n;i++) d[i][i] = 0;
     for(int i = 0;i < m;i++){
-        int a, b, c; cin >> a >> b >> c; 
-        g[a].push_back({b,c}); 
+        int a, b; ll c; cin >> a >> b >> c; 
+        d[a - 1][b - 1] = min(d[a - 1][b - 1], c);
+        d[b - 1][a - 1] = min(d[a - 1][b - 1], c);
     }
-    
+    for(int k = 0;k < n;k++){
+        for(int i = 0;i < n;i++){
+            for(int j = 0;j < n;j++){
+                if(d[i][k] != LLONG_MAX && d[k][j] != LLONG_MAX){
+                    d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+                }
+            }
+        }
+    }
+    for(int i = 0;i < q;i++){
+        int a, b; cin >> a >> b; 
+        ll t = d[a - 1][b - 1];
+        if(t == LLONG_MAX) cout << -1 << endl; 
+        else cout << t << endl;
+    }
     return 0;
 }
