@@ -29,10 +29,9 @@ int main()
     // brute force is thinkable but not this xor approach 
     // need to study the proof behind this
     int n; cin >> n; 
-    for(int i = 1;i <= n;i++){
-        for(int j = 1;j <= n;j++){
+    for(int i = 0;i < n;i++){
+        for(int j = 0;j < n;j++)
             cout << (i ^ j) << " ";
-        }
         cout << "\n";
     }
     return 0;
