@@ -27,7 +27,7 @@ int main()
     std::cin.tie(NULL);
     // this is one unintuitive questions
     // brute force is thinkable but not this xor approach 
-    // need to study the proof behind this
+    // need to study the proof behind this...
     int n; cin >> n; 
     for(int i = 0;i < n;i++){
         for(int j = 0;j < n;j++)
