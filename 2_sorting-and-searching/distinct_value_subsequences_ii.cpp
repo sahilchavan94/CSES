@@ -25,18 +25,16 @@ int main()
 {
     std::ios_base::sync_with_stdio(false);
     std::cin.tie(NULL);
-    
+    int n; cin >> n; 
+    map<ll,ll> mpp; 
+    for(int i = 0;i < n;i++) {
+        ll x; cin >> x; 
+        mpp[x]++; 
+    }
+    ll ans = 1;
+    for(auto &[num, cnt] : mpp){
+        ans = (ans * (cnt + 1)) % MOD; 
+    }
+    cout << (ans - 1 + MOD) % MOD << "\n";
     return 0;
 }
-
-/*
-4 2 1 5 3
-
-1
-2 3
-4 5 
-
-4 1 2 5 3 -> 1 + 1 = 2
-3 1 2 5 4 -> 2 + 1 = 3
-3 2 1 5 4 -> 
-*/
