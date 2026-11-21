@@ -27,9 +27,9 @@ int main()
     std::cin.tie(NULL);
     int n; cin >> n; 
     while(n--){
-        ll x; cin >> x; 
-        ll ans = 0; 
-        for(ll i = 1; i * i <= x;i++){
+        int x; cin >> x; 
+        int ans = 0; 
+        for(int i = 1; i * i <= x;i++){
             if(!(x % i)) {
                 if(i * i == x) ans += 1; 
                 else ans += 2 ;
